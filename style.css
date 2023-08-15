@@ -554,6 +554,32 @@ section {
     padding: 1.5rem;
 }
 
+.account .heading h1 {
+    margin-top: 10rem;
+}
+#user-info {
+    margin: 3rem 2rem;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.orders-container {
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+.orders-container h3 {
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.orders-container h3 span {
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
 /* media queries*/
 @media (max-width:991px) {
     html {

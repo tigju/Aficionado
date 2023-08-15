@@ -3,6 +3,8 @@ session_start();
 
 $errorMessage = isset($_SESSION['login_error']) ? $_SESSION['login_error'] : "";
 unset($_SESSION['login_error']); // Clear the error message after displaying it
+$successMessage = isset($_SESSION['register_success']) ? $_SESSION['register_success'] : "";
+unset($_SESSION['register_success']);
 
 ?>
 
@@ -69,6 +71,10 @@ unset($_SESSION['login_error']); // Clear the error message after displaying it
                 <?php
                     if (!empty($errorMessage)) {
                         echo "<p style='color: red;'>$errorMessage</p>"; // Display the error message if it's not empty
+                    }
+                
+                    if (!empty($successMessage)) {
+                        echo "<p style='color: green;'>$successMessage</p>"; 
                     }
                 ?>
                 <div class="inputBox">

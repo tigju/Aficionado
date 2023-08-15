@@ -33,7 +33,11 @@ $date = date('Y-m-d H:i:s');
 $select = "SELECT `email` FROM `login_info` WHERE `email` = '$email'";
 $res = $conn->query($select);
 
-// if ($res->num_rows > 0) {
+if ($res->num_rows > 0) {
+  $_SESSION['register_error'] = "Account already exists!";
+      header("Location: register_form.php");  
+      exit();
+}
 //   // output data of each row
 //   // while($row = $res->fetch_assoc()) {
 //   //   if($email == $row["email"]) {
@@ -58,7 +62,9 @@ $insertUser = "INSERT INTO `user`(`user_id`,`first_name`, `last_name`, `street`,
 
 if ($conn->query($insertUser) === TRUE) {
   echo "New record created successfully in user table";
+  $_SESSION['register_success'] = "Registration sucessful, you can log in now.";
   header("Location: login_form.php");
+  
 } else {
   echo "Error: " . $insertUser . "<br>" . $conn->error;
 }

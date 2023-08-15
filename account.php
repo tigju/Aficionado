@@ -4,6 +4,9 @@ session_start();
 if(isset($_SESSION['username'])) {
     $uname = $_SESSION['username'];
     $welcome = "Welcome back, ". $uname;
+} else {
+    header("Location: login_form.php"); // Redirect to your login page
+    exit();
 }
 
 ?>
@@ -30,9 +33,9 @@ if(isset($_SESSION['username'])) {
         <nav class="navbar">
             <a href="main.php">Home</a>
             <a href="menu.php">Menu</a>
-            <a href="index.php#about">About</a>
-            <a href="index.php#contact">Contact</a>
-            <a href="account.php">My Account</a>
+            <a href="main.php#about">About</a>
+            <a href="main.php#contact">Contact</a>
+            <a href="#">My Account</a>
         </nav>
         <?php
             if (!empty($welcome)) {
@@ -59,8 +62,10 @@ if(isset($_SESSION['username'])) {
     </header>
     <section class="account" id="account">
         <h1 class="heading">My <span>account</span></h1>
+        <div id="user-info"></div>
         <div class="orders-container">
-
+            <h3>Order <span>history</span></h3>
+            <div id="order-history"></div>
         </div>
     </section>
     

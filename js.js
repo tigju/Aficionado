@@ -69,32 +69,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (event.target.id == "checkout") {
-            window.alert("Your order was placed!")
-            const dataToSend = {
-                cart: cart,
-                
-            };
+            if (!(document.querySelector('.welcome'))) {
+                window.location.href = "login_form.php";
+            }
+            else {
+                window.alert("Your order was placed!")
+                const dataToSend = {
+                    cart: cart,
+                    
+                };
 
-            const cartData = dataToSend.cart;
-            console.log("Sending data:", cartData);
-            fetch("cart.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: new URLSearchParams({ cart: JSON.stringify(cartData) }),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Response from PHP:", data.message);
-                    console.log("Cart Data:", data.cart);
+                const cartData = dataToSend.cart;
+                console.log("Sending data:", cartData);
+                fetch("cart.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: new URLSearchParams({ cart: JSON.stringify(cartData) }),
                 })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-            
-            clearCart();
-            showCart();
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Response from PHP:", data.message);
+                        console.log("Cart Data:", data.cart);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+                
+                clearCart();
+                showCart();
+            }
         }
     });
 
@@ -261,11 +266,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    function clearElement(element) {
-        while (element.firstChild) {
-            element.removeChild(element.firstChild)
-        }
+    // function clearElement(element) {
+    //     while (element.firstChild) {
+    //         element.removeChild(element.firstChild)
+    //     }
+    // }
+    function fetchUserDataAndOrderHistory() {
+        fetch("account_data.php")
+            .then(response => response.json())
+            .then(data => {
+                // Update user info
+                const userInfoDiv = document.getElementById("user-info");
+                userInfoDiv.innerHTML = `<h1>Welcome, ${data.userInfo.first_name} ${data.userInfo.last_name}</h1>
+                                         <p>Address: ${data.userInfo.street}, ${data.userInfo.city}</p>`;
+
+                // Update order history
+                const orderHistoryDiv = document.getElementById("order-history");
+                orderHistoryDiv.innerHTML = data.orderHistory.map(order => `
+                    <div class="order">
+                        <h2>Order ID: ${order.order_id}</h2>
+                        <p>Order Date: ${order.order_date}</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${order.order_lines.map(orderLine => `
+                                    <tr>
+                                        <td>${orderLine.product_name}</td>
+                                        <td>${orderLine.quantity}</td>
+                                        <td>${orderLine.price}</td>
+                                    </tr>`).join('')}
+                            </tbody>
+                        </table>
+                        <p>Total Price: ${order.total_price}</p>
+                    </div>`).join('');
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
     }
+
+    // Call the function to fetch and display data
+    fetchUserDataAndOrderHistory();
 
 
     showCart();
