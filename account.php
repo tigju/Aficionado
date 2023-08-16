@@ -31,10 +31,10 @@ if(isset($_SESSION['fname'])) {
     <header class="header">
         <a href="main.php" class="logo"><img src="images/aficionado3.png" alt="logo">
         <nav class="navbar">
-            <a href="main.php">Home</a>
+            <a href="index.php">Home</a>
             <a href="menu.php">Menu</a>
-            <a href="main.php#about">About</a>
-            <a href="main.php#contact">Contact</a>
+            <a href="index.php#about">About</a>
+            <a href="index.php#contact">Contact</a>
             <a href="#">My Account</a>
         </nav>
         <?php
@@ -77,10 +77,10 @@ if(isset($_SESSION['fname'])) {
             <a href="#" class="fab fa-pinterest"></a>
         </div>
         <div class="links">
-            <a href="main.php#home">Home</a>
-            <a href="main.php#about">About</a>
+            <a href="index.php#home">Home</a>
+            <a href="index.php#about">About</a>
             <a href="menu.php">Menu</a>
-            <a href="main.php#contact">Contact</a>
+            <a href="index.php#contact">Contact</a>
             <a href="#">My Account</a>
         </div>
         <div class="cre" >2023 | all rights reserved</div>

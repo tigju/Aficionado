@@ -28,10 +28,10 @@ if(isset($_SESSION['fname'])) {
     <header class="header">
         <a href="main.php#home" class="logo"><img src="images/aficionado3.png" alt="logo">
         <nav class="navbar">
-            <a href="main.php">Home</a>
-            <a href="main.php#about">About</a>
+            <a href="index.php">Home</a>
+            <a href="index.php#about">About</a>
             <a href="menu.php">Menu</a>
-            <a href="main.php#contact">Contact</a>
+            <a href="index.php#contact">Contact</a>
             <a href="account.php">My Account</a>
         </nav>
         <?php
@@ -54,61 +54,13 @@ if(isset($_SESSION['fname'])) {
             <label for="search-box" class="fas fa-search"></label>
         </div>
         <div class="cart-items-container">
-                <!-- <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 1</h3>
-                        <div class="price">$5.00</div>
-                    </div>
-                </div>
 
-                <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 2</h3>
-                        <div class="price">$6.00</div>
-                    </div>
-                </div>
-                <div class="foot">Total: <span id="total">$0.00</span></div>
-                <a href="#" class="btn">Checkout</a> -->
-                <!-- <a href="#" id="checkout" class="btn">Checkout</a> -->
         </div>
     </header>
     <section class="menu" id="menu">
         <h1 class="heading">Our <span>menu</span></h1>
         <div class="box-container">
-            <!-- <div class="box">
-                <img src="images/1595970.webp" alt="">
-                <h3>Tasty and healthy</h3>
-                <div class="price">$15.00 </div>
-                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
-            </div>
-            <div class="box">
-                <img src="images/1595970.webp" alt="">
-                <h3>Tasty and healthy</h3>
-                <div class="price">$15.00 </div>
-                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
-            </div>
-            <div class="box">
-                <img src="images/1595970.webp" alt="">
-                <h3>Tasty and healthy</h3>
-                <div class="price">$15.00 </div>
-                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
-            </div>
-            <div class="box">
-                <img src="images/1595970.webp" alt="">
-                <h3>Tasty and healthy</h3>
-                <div class="price">$15.00 </div>
-                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
-            </div>
-            <div class="box">
-                <img src="images/1595970.webp" alt="">
-                <h3>Tasty and healthy</h3>
-                <div class="price">$15.00 </div>
-                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
-            </div> -->
+
         </div>
     </section>
     
@@ -120,10 +72,10 @@ if(isset($_SESSION['fname'])) {
             <a href="#" class="fab fa-pinterest"></a>
         </div>
         <div class="links">
-            <a href="main.php#home">Home</a>
-            <a href="main.php#about">About</a>
+            <a href="index.php#home">Home</a>
+            <a href="index.php#about">About</a>
             <a href="#menu">Menu</a>
-            <a href="main.php#contact">Contact</a>
+            <a href="index.php#contact">Contact</a>
             <a href="account.php">My Account</a>
         </div>
         <div class="cre" >2023 | all rights reserved</div>

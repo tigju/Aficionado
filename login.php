@@ -45,7 +45,7 @@ if ($res->num_rows > 0) {
           $_SESSION['fname'] = $r['first_name'];
         }
       }   
-      header("Location: main.php");
+      header("Location: index.php");
     }
   }
 } else {

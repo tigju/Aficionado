@@ -28,10 +28,10 @@ unset($_SESSION['register_success']);
     <header class="header">
         <a href="main.php" class="logo"><img src="images/aficionado3.png" alt="logo">
             <nav class="navbar">
-                <a href="main.php">Home</a>
-                <a href="main.php#about">About</a>
+                <a href="index.php">Home</a>
+                <a href="index.php#about">About</a>
                 <a href="menu.php">Menu</a>
-                <a href="main.php#contact">Contact</a>
+                <a href="index.php#contact">Contact</a>
             </nav>
             <div class="icons">
                 <div class="fas fa-search" id="search-btn"></div>
