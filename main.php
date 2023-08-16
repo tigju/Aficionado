@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['username'])) {
-    $uname = $_SESSION['username'];
+if(isset($_SESSION['fname'])) {
+    $uname = $_SESSION['fname'];
     $welcome = "Welcome back, ". $uname;
 }
 
@@ -27,7 +27,7 @@ if(isset($_SESSION['username'])) {
 <body>
 
     <header class="header">
-        <a href="#" class="logo"><img src="images/aficionado3.png" alt="logo" >
+        <a href="#home" class="logo"><img src="images/aficionado3.png" alt="logo" >
             <nav class="navbar">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -56,33 +56,14 @@ if(isset($_SESSION['username'])) {
                 <label for="search-box" class="fas fa-search"></label>
             </div>
             <div class="cart-items-container">
-                <!-- <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 1</h3>
-                        <div class="price">$5.00</div>
-                    </div>
-                </div>
-            
-                
-                <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 2</h3>
-                        <div class="price">$6.00</div>
-                    </div>
-                </div>
-                <a href="#" class="btn">Checkout</a> -->
-                <!-- <a href="#" id="checkout" class="btn" style="display: none">Checkout</a> -->
+
             </div>
 
     </header>
     <section class="home" id="home">
         <div class="content">
             <h3>Fresh Coffee</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error neque quas saepe officia accusantium facere quidem esse inventore quasi asperiores minus magnam voluptas, sunt enim. Tenetur delectus culpa aliquam iure?</p>
+            <p>Embracing the essence of freshness, <span>Aficionado</span> takes pride in selecting and roasting beans at their peak, ensuring that each cup boasts rich flavors and enticing aromas.</p>
             <a href="menu.php" class="btn">get yours now</a>
         </div>
     </section>
@@ -90,12 +71,12 @@ if(isset($_SESSION['username'])) {
         <h1 class="heading"><span>About</span> us</h1>
         <div class="row">
             <div class="image">
-                <img src="images/logo.png" alt="">
+                <img src="images/coffee_bg.jpg" alt="">
             </div>
             <div class="content">
                 <h3>What makes our coffee special?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla recusandae sequi illo eaque nesciunt quaerat at aliquid minima, id tempora dolorum nam! Impedit eligendi neque harum perspiciatis. Enim, blanditiis similique!</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, architecto. Laudantium, facilis corporis! Perspiciatis nemo, facilis recusandae provident repellendus eos voluptates ipsum error hic? Dolore excepturi harum possimus repellendus quos.</p>
+                <p>Welcome to <span>Aficionado</span>, where our commitment to coffee craftsmanship sets us apart. Our journey begins with a relentless pursuit of the finest beans, sourced from the world's most renowned coffee regions. With every sip, you'll embark on a global expedition, from the velvety tones of Colombian beans to the lively notes of Ethiopian blends, each cup tells a unique story.</p>
+                <p>we're inviting you to experience a symphony of tastes and cultures. Discover the world, sip by sip, at <span>Aficionado<span>.</p>
                 <a class="btn">Learn more</a>
             </div>
         </div>

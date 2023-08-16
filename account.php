@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['username'])) {
-    $uname = $_SESSION['username'];
+if(isset($_SESSION['fname'])) {
+    $uname = $_SESSION['fname'];
     $welcome = "Welcome back, ". $uname;
 } else {
     header("Location: login_form.php"); // Redirect to your login page
@@ -29,7 +29,7 @@ if(isset($_SESSION['username'])) {
 <body>
     
     <header class="header">
-        <a href="#" class="logo"><img src="images/aficionado3.png" alt="logo">
+        <a href="main.php" class="logo"><img src="images/aficionado3.png" alt="logo">
         <nav class="navbar">
             <a href="main.php">Home</a>
             <a href="menu.php">Menu</a>

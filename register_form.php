@@ -23,7 +23,7 @@ unset($_SESSION['register_error']); // Clear the error message after displaying 
 <body>
 
     <header class="header">
-        <a href="#" class="logo"><img src="images/aficionado3.png" alt="logo">
+        <a href="main.php" class="logo"><img src="images/aficionado3.png" alt="logo">
             <nav class="navbar">
                 <a href="main.php">Home</a>
                 <a href="main.php#about">About</a>

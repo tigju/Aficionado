@@ -25,17 +25,26 @@ $pass = md5($_POST['psw']);
 $sql = "SELECT `id`, `email`, `password` FROM `login_info` WHERE `email` = '$username'";
 $res = $conn->query($sql);
 
+$res = $conn->query($sql);
 
 if ($res->num_rows > 0) {
   // output data of each row
   while($row = $res->fetch_assoc()) {
     if($pass != $row["password"]) {
-      $_SESSION['login_error'] = "Incorrect username or password";
+      $_SESSION['login_error'] = "Incorrect password";
       header("Location: login_form.php");
     } else {
       $_SESSION['success_message'] = "logged in successfully";
       $_SESSION['username'] = $username;
       $_SESSION['user_id'] = $row['id'];
+      $uid = $row['id'];
+      $fname = "SELECT `first_name` FROM `user` WHERE `user_id` = '$uid'";
+      $rs = $conn->query($fname);
+      if ($rs->num_rows > 0) {
+        while($r = $rs->fetch_assoc()) {
+          $_SESSION['fname'] = $r['first_name'];
+        }
+      }   
       header("Location: main.php");
     }
   }
@@ -45,15 +54,6 @@ if ($res->num_rows > 0) {
     header("Location: login_form.php");
     exit(); // Make sure to exit after sending the header
 }
-
-// echo $username;
-// $select = "SELECT * FROM `login_info` WHERE `email` = '$username'";
-// $res = $conn->query($select)
-// if ( $res->num_rows > 0) {
-//   echo "Hello". $username;
-// } else {
-//   echo "Error: " . $select . "<br>" . $conn->error;
-// }
 
 $conn->close();
 

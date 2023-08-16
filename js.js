@@ -1,27 +1,58 @@
 let productItem = [{
     id: 1,
-    productName: "Coffee 1",
+    productName: "Turkish style coffee",
     price: "5.00",
-    photo: "images/1595970.webp"
+    photo: "images/turkish.jpg"
 },
 {
     id: 2,
-    productName: "Coffee 2",
+    productName: "Ethiopian Coffee",
     price: "6.00",
-    photo: "images/1595970.webp"
+    photo: "images/ethiopian.jpeg"
 },
 {
     id: 3,
-    productName: "Coffee 3",
+    productName: "Brazilian Style",
     price: "5.50",
-    photo: "images/1595970.webp"
+    photo: "images/brazilian.jpeg"
 },
 {
     id: 4,
-    productName: "Coffee 4",
+    productName: "Jamaican Blue Mountain",
     price: "7.00",
-    photo: "images/1595970.webp"
+    photo: "images/jamaican.jpeg"
+},
+{
+    id: 5,
+    productName: "Café de Olla (Mexican)",
+    price: "7.55",
+    photo: "images/mexican.jpeg"
+},
+{
+    id: 6,
+    productName: "Rwandan Coffee",
+    price: "5.75",
+    photo: "images/rwanda.jpeg"
+},
+{
+    id: 7,
+    productName: "Sumatra Coffee",
+    price: "6.75",
+    photo: "images/samarta.jpeg"
+},
+{
+    id: 8,
+    productName: "Latte",
+    price: "9.75",
+    photo: "images/latte.jpeg"
+},
+{
+    id: 9,
+    productName: "Hawaiian Kona Coffee",
+    price: "6.00",
+    photo: "images/hawaii.jpeg"
 }];
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -59,8 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (parentElement) {
                 const parentId = parentElement.dataset.id;
                 // console.log(parentId);
+                let toCart = document.createElement('span')
+                toCart.classList.add("temp-to-cart");
+                toCart.innerHTML = "<br>Added to cart"
+                parentElement.appendChild(toCart);
                 addItemToCart(parentId);
                 showCart();
+
+                setTimeout(removeMessage, 3000);
             }
         }
 
@@ -74,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             else {
                 window.alert("Your order was placed!")
+                window.location.href = "account.php";
                 const dataToSend = {
                     cart: cart,
                     
@@ -222,23 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
-    // function ShowProductMenu() {
-    //     //Iterate javascript shopping cart array
-    //     let productHTML = "";
-    //     products.forEach(function (item) {
-    //         productHTML +=
-    //             '<div class="box">' +
-    //             '<img src="' + item.photo + '">' +
-    //             '<h3>' + item.productName + '</h3>' +
-    //             '<div class="price">$' + item.price + '</div>' +
-    //             '<a href="#" class="btn add-to-cart">Add to cart</a>' +
-    //             '</div>';
-
-
-    //     });
-    //     document.querySelector('.box-container').innerHTML = productHTML;
-    // }
-
     // this i to show the menu
     function showCart() {
         cartItems.innerHTML = '';
@@ -284,31 +305,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 const orderHistoryDiv = document.getElementById("order-history");
                 orderHistoryDiv.innerHTML = data.orderHistory.map(order => `
                     <div class="order">
-                        <h2>Order ID: ${order.order_id}</h2>
-                        <p>Order Date: ${order.order_date}</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${order.order_lines.map(orderLine => `
-                                    <tr>
-                                        <td>${orderLine.product_name}</td>
-                                        <td>${orderLine.quantity}</td>
-                                        <td>${orderLine.price}</td>
-                                    </tr>`).join('')}
-                            </tbody>
-                        </table>
-                        <p>Total Price: ${order.total_price}</p>
+                        
+                        <span class="ord_num">Order ID: ${order.order_id}&emsp;Order Date: ${order.order_date.split(' ')[0] }</span><br>
+
+                        ${order.order_lines.map(orderLine => `
+                                        
+                                            <span>${orderLine.product_name}&emsp;</span>
+                                            <span>Quantity: ${orderLine.quantity}&emsp;</span>
+                                            <span>Price: $ ${orderLine.price}</span><br>
+                            `).join('')}
+                            
+                            
+                            <br><span class='total-price'>Total Price: $ ${order.total_price}</span>
+                        
                     </div>`).join('');
             })
             .catch(error => {
                 console.error("Error:", error);
             });
+    }
+
+    function removeMessage() {
+        const messageElement = document.querySelector(".temp-to-cart"); // Adjust the selector as needed
+        if (messageElement) {
+            messageElement.remove();
+        }
     }
 
     // Call the function to fetch and display data

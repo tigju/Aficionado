@@ -43,25 +43,7 @@ unset($_SESSION['register_success']);
                 <label for="search-box" class="fas fa-search"></label>
             </div>
             <div class="cart-items-container">
-                <!-- <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 1</h3>
-                        <div class="price">$5.00</div>
-                    </div>
-                </div>
 
-
-                <div class="cart-item">
-                    <span class="fas fa-times"></span>
-                    <img src="images/logo.png" alt="">
-                    <div class="content">
-                        <h3>cart item 2</h3>
-                        <div class="price">$6.00</div>
-                    </div>
-                </div>
-                <a href="#" class="btn">Checkout</a> -->
             </div>
     </header>
     <section class="login" id="login">
@@ -70,11 +52,11 @@ unset($_SESSION['register_success']);
                 <h3>Log In</h3>
                 <?php
                     if (!empty($errorMessage)) {
-                        echo "<p style='color: red;'>$errorMessage</p>"; // Display the error message if it's not empty
+                        echo "<p style='color: red; font-size: 1.9rem;'>$errorMessage</p>"; // Display the error message if it's not empty
                     }
                 
                     if (!empty($successMessage)) {
-                        echo "<p style='color: green;'>$successMessage</p>"; 
+                        echo "<p style='color: green; font-size: 1.9rem'>$successMessage</p>"; 
                     }
                 ?>
                 <div class="inputBox">

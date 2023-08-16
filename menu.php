@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['username'])) {
-    $uname = $_SESSION['username'];
+if(isset($_SESSION['fname'])) {
+    $uname = $_SESSION['fname'];
     $welcome = "Welcome back, ". $uname;
 }
 
@@ -26,12 +26,12 @@ if(isset($_SESSION['username'])) {
 <body>
     
     <header class="header">
-        <a href="#" class="logo"><img src="images/aficionado3.png" alt="logo">
+        <a href="main.php#home" class="logo"><img src="images/aficionado3.png" alt="logo">
         <nav class="navbar">
             <a href="main.php">Home</a>
-            <a href="index.php#about">About</a>
+            <a href="main.php#about">About</a>
             <a href="menu.php">Menu</a>
-            <a href="index.php#contact">Contact</a>
+            <a href="main.php#contact">Contact</a>
             <a href="account.php">My Account</a>
         </nav>
         <?php

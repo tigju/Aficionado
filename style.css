@@ -131,6 +131,8 @@ body {
     width: 35rem;
     background: #fff;
     padding: 0 1.5rem;
+    padding-bottom: 2rem;
+    overflow-y: auto;
 }
 
 .header .cart-items-container.active {
@@ -160,6 +162,7 @@ body {
 
 .header .cart-items-container .cart-item img {
     height: 7rem;
+    width: 10rem;
 }
 
 .header .cart-items-container .cart-item .content h3 {
@@ -180,7 +183,7 @@ body {
     align-self: center;
 }
 .header .cart-items-container .foot {
-    font-size: 1.7rem;
+    font-size: 2.5rem;
 }
 
 .btn {
@@ -213,7 +216,7 @@ body {
     align-items: center;
     background: url(./images/1595970.webp);
     background-size: cover;
-    background-position: center;
+    background-position-x: 25rem;
 
 }
 
@@ -232,11 +235,15 @@ section {
 }
 
 .home .content p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: lighter;
     line-height: 1.8;
     padding: 1rem 0;
     color: #eee;
+}
+.home .content span {
+    color: var(--main-color);
+    text-transform: uppercase;
 }
 
 .heading {
@@ -278,10 +285,14 @@ section {
 }
 
 .about .row .content p {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     color: #ccc;
     padding: 1rem 0;
     line-height: 1.8;
+}
+
+.about .row .content span {
+    color: var(--main-color);
 }
 
 /* menu */
@@ -298,7 +309,7 @@ section {
 }
 
 .menu .box-container .box img {
-    height: 10rem;
+    height: 15rem;
 }
 
 .menu .box-container .box h3 {
@@ -313,11 +324,11 @@ section {
     padding: .5rem 0;
 }
 
-/* .menu .box-container .box .price span {
-    color: #fff;
+.menu .box-container .box span {
     font-size: 1.7rem;
-    text-decoration: line-through;
-} */
+    margin-top: .3rem;
+    color: green !important;
+}
 
 .menu .box-container .box:hover {
     background: #fff;
@@ -554,8 +565,9 @@ section {
     padding: 1.5rem;
 }
 
-.account .heading h1 {
+.account .heading {
     margin-top: 10rem;
+    margin-bottom: 1rem;
 }
 #user-info {
     margin: 3rem 2rem;
@@ -565,7 +577,7 @@ section {
 
 .orders-container {
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
 }
 
 .orders-container h3 {
@@ -573,11 +585,36 @@ section {
     color: #fff;
     text-transform: uppercase;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .orders-container h3 span {
     color: var(--main-color);
     text-transform: uppercase;
+}
+
+#order-history {
+    border: 1px solid rgba(255, 255, 255, .2) !important;
+}
+
+.order {
+    padding: 1rem 2rem;
+    line-height: 1.8;
+}
+
+.order:nth-child(odd) {
+    background: rgba(255, 255, 255, .2) !important;
+}
+
+.order .ord_num {
+    border-bottom: 1px solid #fff;
+}
+
+.order .total-price {
+    color: var(--main-color);
+    font-size: 2rem;
+    margin-top: .3rem;
+    border-top: 1px solid #fff;
 }
 
 /* media queries*/
